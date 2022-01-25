@@ -1,0 +1,10 @@
+debug/
+target/
+dist/
+.vagrant/
+**/*.rs.bk
+
+*.box
+*.pdb
+.idea/
+
