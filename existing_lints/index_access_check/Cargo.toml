@@ -1,0 +1,16 @@
+[package]
+name = "index_access_check"
+version = "0.1.0"
+edition = "2021"
+description = "Checks the code for the use of [] operator, which panics, if out-of-bounds"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", tag = "rust-1.72.0"}
+dylint_linting = "2.0.9"
+if_chain = "1.0.2"
+
+[dev-dependencies]
+dylint_testing = "2.0.9"

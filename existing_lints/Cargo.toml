@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "unwrap_check",
+    "mpsc_blocking_send",
+    "large_futures",
+    "index_access_check"
+]
