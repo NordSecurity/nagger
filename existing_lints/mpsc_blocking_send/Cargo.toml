@@ -1,0 +1,22 @@
+[package]
+name = "mpsc_blocking_send"
+version = "0.1.0"
+edition = "2021"
+description = "I please not use better to not deadlock :prayge:"
+
+[[example]]
+name = "ui"
+path = "ui/mpsc_blocking_send.rs"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", tag = "rust-1.72.0"}
+dylint_linting = "2.0.9"
+if_chain = "1.0.2"
+
+[dev-dependencies]
+dylint_testing = "2.0.9"
+tokio = { version = "1.20.1", features = ["full"]}
+reqwest = {version = "0.11", default-features = false, features = ["blocking"]}
