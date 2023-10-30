@@ -1,0 +1,28 @@
+name: Docker build and push
+on: [push, pull_request]
+permissions: {}
+
+jobs:
+  build_and_push:
+    permissions:
+      packages: write
+      contents: read
+    env:
+      CONTAINER_REGISTRY: ghcr.io
+      CI_COMMIT_TAG: ${{ github.ref_name }}
+    runs-on: ubuntu-22.04
+    container: rust:1.72
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+      - run: ./ci/install_docker.sh
+      - uses: docker/login-action@343f7c4344506bcbf9b4de18042ae17996df046d # v3.0.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - run: rustup update nightly-2023-07-02
+      - run: cargo install --version 2.4.3 cargo-dylint dylint-link
+      - run: ./ci/build_nagger.sh
+      - run: ./ci/build_image.sh build
+      - run: ./ci/build_image.sh push
