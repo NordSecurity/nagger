@@ -1,7 +1,7 @@
 # By default this workflow will be running for PRs, pushes to the main branch and on a scheduled basis
 on:
   pull_request_target:
-    types: [labeled]
+    branches: [main]
   pull_request:
     branches: [main]
   push:
@@ -9,27 +9,30 @@ on:
   schedule:
     # runs every day at 20:00 UTC
     - cron:  '0 20 * * *'
+
+permissions: {} # Remove permissions
 jobs:
+  authorize:
+    environment:
+      ${{(github.event_name == 'pull_request_target' &&
+      github.event.pull_request.head.repo.full_name != github.repository) &&
+      'External' || 'Internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ✓
   sast:
-    if: |
-      github.event_name == 'push' ||
-      github.event_name == 'schedule' ||
-      (
-        github.event_name == 'pull_request' &&
-        github.event.pull_request.head.repo.full_name == github.event.pull_request.base.repo.full_name
-      ) ||
-      (
-        github.event_name == 'pull_request_target' &&
-        github.event.pull_request.head.repo.full_name != github.event.pull_request.base.repo.full_name &&
-        github.event.label.name == 'security scan'
-      )
+    needs: authorize
     runs-on: sast
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
+        with:
+          ref: ${{github.event.pull_request.head.sha || github.ref}}
+          persist-credentials: 'false' #By default, actions/checkout persists GIT credentials, we do not need this
       # Checking out SAST composite action
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
-        with: 
+        with:
+          persist-credentials: 'false' #By default, actions/checkout persists GIT credentials, we do not need this
           repository: NordSecurity/sast-configs
           ref: main
           ssh-key: ${{ secrets.SAST_ACTION_KEY }}
