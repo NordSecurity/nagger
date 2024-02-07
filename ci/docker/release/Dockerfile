@@ -10,14 +10,14 @@ RUN set -eux; \
     export DEBIAN_FRONTEND=noninteractive; \
     apt-get update && \
     apt-get -y install \
-        # general deps        
+        # general deps
         pkg-config libssl-dev build-essential \
         # libdrop deps
         cmake \
         # Libtelio dependencies
         quilt && \
     apt-get clean && \
-    cargo install --version 2.4.3 cargo-dylint dylint-link && \
+    cargo install --version 2.6.1 cargo-dylint dylint-link --locked && \
     # This is the last 1.72.0 nightly build that works with rust-clippy.
     rustup update nightly-2024-02-06
 

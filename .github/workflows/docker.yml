@@ -22,7 +22,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - run: rustup update nightly-2024-02-06
-      - run: cargo install --version 2.4.3 cargo-dylint dylint-link
+      - run: cargo install --version 2.6.1 cargo-dylint dylint-link --locked
       - run: ./ci/build_nagger.sh
       - run: ./ci/image.sh build
       - run: ./ci/image.sh push
