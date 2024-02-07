@@ -8,7 +8,7 @@ jobs:
     container: rust:1.72
     steps:
       - run: cargo install --version 2.4.3 cargo-dylint dylint-link
-      - run: rustup update nightly-2023-07-02
+      - run: rustup update nightly-2024-02-06
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
       - run: cargo test --all
