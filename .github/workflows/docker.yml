@@ -11,7 +11,7 @@ jobs:
       CONTAINER_REGISTRY: ghcr.io
       IMAGE_TAG: ${{ github.ref_name }}
     runs-on: ubuntu-22.04
-    container: rust:1.72
+    container: rust:1.77.0
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
@@ -21,7 +21,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - run: rustup update nightly-2023-07-02
+      - run: rustup update nightly-2024-01-25
       - run: cargo install --version 2.4.3 cargo-dylint dylint-link
       - run: ./ci/build_nagger.sh
       - run: ./ci/image.sh build

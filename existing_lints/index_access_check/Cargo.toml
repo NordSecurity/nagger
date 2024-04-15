@@ -8,9 +8,9 @@ description = "Checks the code for the use of [] operator, which panics, if out-
 crate-type = ["cdylib"]
 
 [dependencies]
-clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", tag = "rust-1.72.0"}
-dylint_linting = "2.0.9"
+clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", tag = "rust-1.77.0"}
+dylint_linting = "2.6.1"
 if_chain = "1.0.2"
 
 [dev-dependencies]
-dylint_testing = "2.0.9"
+dylint_testing = "2.6.1"

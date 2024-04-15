@@ -1,5 +1,5 @@
 // Copyright 2023 Nord Security
-#![feature(generators)]
+#![feature(coroutines)]
 #![warn(clippy::large_futures)]
 #![allow(clippy::future_not_send)]
 #![allow(clippy::manual_async_fn)]

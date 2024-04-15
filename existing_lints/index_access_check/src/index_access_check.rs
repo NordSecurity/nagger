@@ -56,7 +56,7 @@ impl EarlyLintPass for IndexAccessCheck {
         let mut warn_msg = "Use of Index [].";
         if_chain! {
             if !self.stack.is_empty();
-            if let ExprKind::Index(_, ind_expr) = &expr.kind;
+            if let ExprKind::Index(_, ind_expr, _) = &expr.kind;
             then {
                 if_chain!{
                     // Allow '[..]'
