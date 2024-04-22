@@ -5,3 +5,7 @@ members = [
     "large_futures",
     "index_access_check"
 ]
+
+[workspace.dependencies]
+dylint_linting = "3.0.0"
+dylint_testing = "3.0.0"
