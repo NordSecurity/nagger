@@ -6,6 +6,7 @@ LL |     let _ = chtx.send(msg.clone()).await;
    |
    = help: Consider using try_send() or wait_for_tx(). Alternatively use #[allow(mpsc_blocking_send)] to suppress the warning.
    = note: `-D mpsc-blocking-send` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(mpsc_blocking_send)]`
 
 error: Use of blocking mpsc::[Sync]Sender::send() variant, this might deadlock if used incorrectly
   --> $DIR/mpsc_blocking_send.rs:17:13

@@ -1,7 +1,7 @@
 ARG CONTAINER_REGISTRY
 ARG NAGGER_BUILD_TAG
 
-FROM rust:1.72
+FROM rust:1.77.0
 LABEL org.opencontainers.image.authors="info@nordsec.com"
 LABEL org.opencontainers.image.source=https://github.com/NordSecurity/nagger
 
@@ -18,7 +18,6 @@ RUN set -eux; \
         quilt && \
     apt-get clean && \
     cargo install --version 2.4.3 cargo-dylint dylint-link && \
-    # This is the last 1.72.0 nightly build that works with rust-clippy.
-    rustup update nightly-2023-07-02
+    rustup update nightly-2024-01-25
 
 ENV NAGGER_PATH=/dist
