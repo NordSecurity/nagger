@@ -6,6 +6,7 @@ LL |     let _result = get_result().unwrap();
    |
    = help: Consider implementing proper error handling or using #[allow(unwrap_check)] to suppress the warning.
    = note: `-D unwrap-check` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(unwrap_check)]`
 
-error: aborting due to previous error
+error: aborting due to 1 previous error
 
