@@ -1,41 +1,40 @@
-error: large future with a size of 16385 bytes
+warning: large future with a size of 16385 bytes
   --> $DIR/large_futures.rs:11:9
    |
 LL |         big_fut([0u8; 1024 * 16]).await;
    |         ^^^^^^^^^^^^^^^^^^^^^^^^^ help: consider `Box::pin` on it: `Box::pin(big_fut([0u8; 1024 * 16]))`
    |
-   = note: `-D large-futures` implied by `-D warnings`
-   = help: to override `-D warnings` add `#[allow(large_futures)]`
+   = note: `#[warn(large_futures)]` on by default
 
-error: large future with a size of 16386 bytes
+warning: large future with a size of 16386 bytes
   --> $DIR/large_futures.rs:13:5
    |
 LL |     f.await
    |     ^ help: consider `Box::pin` on it: `Box::pin(f)`
 
-error: large future with a size of 16387 bytes
+warning: large future with a size of 16387 bytes
   --> $DIR/large_futures.rs:17:9
    |
 LL |         wait().await;
    |         ^^^^^^ help: consider `Box::pin` on it: `Box::pin(wait())`
 
-error: large future with a size of 16387 bytes
+warning: large future with a size of 16387 bytes
   --> $DIR/large_futures.rs:21:13
    |
 LL |             wait().await;
    |             ^^^^^^ help: consider `Box::pin` on it: `Box::pin(wait())`
 
-error: large future with a size of 65540 bytes
+warning: large future with a size of 65540 bytes
   --> $DIR/large_futures.rs:28:5
    |
 LL |     foo().await;
    |     ^^^^^ help: consider `Box::pin` on it: `Box::pin(foo())`
 
-error: large future with a size of 49159 bytes
+warning: large future with a size of 49159 bytes
   --> $DIR/large_futures.rs:29:5
    |
 LL |     calls_fut(fut).await;
    |     ^^^^^^^^^^^^^^ help: consider `Box::pin` on it: `Box::pin(calls_fut(fut))`
 
-error: aborting due to 6 previous errors
+warning: 6 warnings emitted
 

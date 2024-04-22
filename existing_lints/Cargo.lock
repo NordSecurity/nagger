@@ -303,9 +303,9 @@ dependencies = [
 
 [[package]]
 name = "dylint"
-version = "2.6.1"
+version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4d6259cf4df09300534dcfa6a49918bb442327111e370c656b31f1c10ec08145"
+checksum = "927d37eecb249c058d2d6100fd86f47c9424d13796bcd02d2c81a6c1ed80067b"
 dependencies = [
  "ansi_term",
  "anyhow",
@@ -324,9 +324,9 @@ dependencies = [
 
 [[package]]
 name = "dylint_internal"
-version = "2.6.1"
+version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9400420c9ffa71c6b1b75d84225a150e3428eb12159e5bf4f56285bd9eb1c095"
+checksum = "d4c32056fd5a610d2c9abc98155d395eb3ce61989c89e78e417241d06a5cc41b"
 dependencies = [
  "ansi_term",
  "anyhow",
@@ -338,15 +338,15 @@ dependencies = [
  "is-terminal",
  "log",
  "once_cell",
+ "regex",
  "rust-embed",
- "sedregex",
 ]
 
 [[package]]
 name = "dylint_linting"
-version = "2.6.1"
+version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "43fc05c7103dfadd497486bbbf941899888f4e19271da70b58f66385247230c2"
+checksum = "b952b4f93ea8df102105ea08a9fbcd92af9791c6cdb9a6f27bb2820816c26d5a"
 dependencies = [
  "cargo_metadata",
  "dylint_internal",
@@ -359,9 +359,9 @@ dependencies = [
 
 [[package]]
 name = "dylint_testing"
-version = "2.6.1"
+version = "3.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "785fa52ac8fe5f1056a71955f4ebda3ca90c269ef28b172ad85a3901752d5fdf"
+checksum = "e493af8de71bd92c640c95782748be2f2b6ff3b976d7077edf917181ebdd534a"
 dependencies = [
  "anyhow",
  "cargo_metadata",
@@ -1204,15 +1204,6 @@ name = "scopeguard"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
-
-[[package]]
-name = "sedregex"
-version = "0.2.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "19411e23596093f03bbd11dc45603b6329bb4bfec77b9fd13e2b9fc9b02efe3e"
-dependencies = [
- "regex",
-]
 
 [[package]]
 name = "semver"

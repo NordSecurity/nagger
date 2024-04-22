@@ -13,10 +13,10 @@ crate-type = ["cdylib"]
 
 [dependencies]
 clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", tag = "rust-1.77.0"}
-dylint_linting = "2.6.1"
+dylint_linting.workspace = true
 if_chain = "1.0.2"
 
 [dev-dependencies]
-dylint_testing = "2.6.1"
+dylint_testing.workspace = true
 tokio = { version = "1.20.1", features = ["full"]}
 reqwest = {version = "0.11", default-features = false, features = ["blocking"]}
