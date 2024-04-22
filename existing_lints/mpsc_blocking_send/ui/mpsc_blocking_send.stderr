@@ -1,14 +1,13 @@
-error: Use of blocking mpsc::[Sync]Sender::send() variant, this might deadlock if used incorrectly
+warning: Use of blocking mpsc::[Sync]Sender::send() variant, this might deadlock if used incorrectly
   --> $DIR/mpsc_blocking_send.rs:13:13
    |
 LL |     let _ = chtx.send(msg.clone()).await;
    |             ^^^^^^^^^^^^^^^^^^^^^^
    |
    = help: Consider using try_send() or wait_for_tx(). Alternatively use #[allow(mpsc_blocking_send)] to suppress the warning.
-   = note: `-D mpsc-blocking-send` implied by `-D warnings`
-   = help: to override `-D warnings` add `#[allow(mpsc_blocking_send)]`
+   = note: `#[warn(mpsc_blocking_send)]` on by default
 
-error: Use of blocking mpsc::[Sync]Sender::send() variant, this might deadlock if used incorrectly
+warning: Use of blocking mpsc::[Sync]Sender::send() variant, this might deadlock if used incorrectly
   --> $DIR/mpsc_blocking_send.rs:17:13
    |
 LL |     let _ = chtx.send(msg.clone());
@@ -16,7 +15,7 @@ LL |     let _ = chtx.send(msg.clone());
    |
    = help: Consider using try_send() or wait_for_tx(). Alternatively use #[allow(mpsc_blocking_send)] to suppress the warning.
 
-error: Use of blocking mpsc::[Sync]Sender::send() variant, this might deadlock if used incorrectly
+warning: Use of blocking mpsc::[Sync]Sender::send() variant, this might deadlock if used incorrectly
   --> $DIR/mpsc_blocking_send.rs:30:21
    |
 LL |             let _ = chtx.send(msg.clone()).await;
@@ -24,5 +23,5 @@ LL |             let _ = chtx.send(msg.clone()).await;
    |
    = help: Consider using try_send() or wait_for_tx(). Alternatively use #[allow(mpsc_blocking_send)] to suppress the warning.
 
-error: aborting due to 3 previous errors
+warning: 3 warnings emitted
 

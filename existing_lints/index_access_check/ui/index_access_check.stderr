@@ -1,14 +1,13 @@
-error: Use of Index [].
+warning: Use of Index [].
   --> $DIR/index_access_check.rs:11:19
    |
 LL |     let _result = get_array()[2];
    |                   ^^^^^^^^^^^^^^
    |
    = help: Consider implementing proper member (or range) access or using #[allow(index_access_check)] to suppress the warning.
-   = note: `-D index-access-check` implied by `-D warnings`
-   = help: to override `-D warnings` add `#[allow(index_access_check)]`
+   = note: `#[warn(index_access_check)]` on by default
 
-error: Use of Range [x..y].
+warning: Use of Range [x..y].
   --> $DIR/index_access_check.rs:21:20
    |
 LL |     let _result = &get_array()[1..2];
@@ -16,7 +15,7 @@ LL |     let _result = &get_array()[1..2];
    |
    = help: Consider implementing proper member (or range) access or using #[allow(index_access_check)] to suppress the warning.
 
-error: Use of Range [x..y].
+warning: Use of Range [x..y].
   --> $DIR/index_access_check.rs:26:20
    |
 LL |     let _result = &get_array()[1..];
@@ -24,7 +23,7 @@ LL |     let _result = &get_array()[1..];
    |
    = help: Consider implementing proper member (or range) access or using #[allow(index_access_check)] to suppress the warning.
 
-error: Use of Range [x..y].
+warning: Use of Range [x..y].
   --> $DIR/index_access_check.rs:31:20
    |
 LL |     let _result = &get_array()[..=2];
@@ -32,7 +31,7 @@ LL |     let _result = &get_array()[..=2];
    |
    = help: Consider implementing proper member (or range) access or using #[allow(index_access_check)] to suppress the warning.
 
-error: Use of Index [].
+warning: Use of Index [].
   --> $DIR/index_access_check.rs:49:19
    |
 LL |     let _result = get_array()[2];
@@ -40,5 +39,5 @@ LL |     let _result = get_array()[2];
    |
    = help: Consider implementing proper member (or range) access or using #[allow(index_access_check)] to suppress the warning.
 
-error: aborting due to 5 previous errors
+warning: 5 warnings emitted
 
