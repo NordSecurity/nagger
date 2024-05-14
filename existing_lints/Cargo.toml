@@ -3,7 +3,8 @@ members = [
     "unwrap_check",
     "mpsc_blocking_send",
     "large_futures",
-    "index_access_check"
+    "index_access_check",
+    "tokio_time_interval"
 ]
 
 [workspace.dependencies]

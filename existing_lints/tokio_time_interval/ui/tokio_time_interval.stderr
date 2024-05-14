@@ -1,0 +1,35 @@
+warning: Use of tokio::time::interval::interval, this might generate many ticks after a sleep.
+  --> $DIR/tokio_time_interval.rs:11:25
+   |
+LL |         let _interval = tokio::time::interval(D);
+   |                         ^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: Consider using wrapper from telio-utils, or set the missed tick behaviour to appropriate value.
+   = note: `#[warn(tokio_time_interval)]` on by default
+
+warning: Use of tokio::time::interval::interval, this might generate many ticks after a sleep.
+  --> $DIR/tokio_time_interval.rs:16:25
+   |
+LL |         let _interval = interval(D);
+   |                         ^^^^^^^^^^^
+   |
+   = help: Consider using wrapper from telio-utils, or set the missed tick behaviour to appropriate value.
+
+warning: Use of tokio::time::interval::interval_at, this might generate many ticks after a sleep.
+  --> $DIR/tokio_time_interval.rs:39:25
+   |
+LL |         let _interval = tokio::time::interval_at(Instant::now(), D);
+   |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: Consider using wrapper from telio-utils, or set the missed tick behaviour to appropriate value.
+
+warning: Use of tokio::time::interval::interval_at, this might generate many ticks after a sleep.
+  --> $DIR/tokio_time_interval.rs:44:25
+   |
+LL |         let _interval = interval_at(Instant::now(), D);
+   |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: Consider using wrapper from telio-utils, or set the missed tick behaviour to appropriate value.
+
+warning: 4 warnings emitted
+

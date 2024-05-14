@@ -1,0 +1,20 @@
+[package]
+name = "tokio_time_interval"
+version = "0.1.0"
+edition = "2021"
+description = "Detect usage of tokio::time::interval"
+
+[[example]]
+name = "ui"
+path = "ui/tokio_time_interval.rs"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", tag = "rust-1.77.0"}
+dylint_linting.workspace = true
+
+[dev-dependencies]
+dylint_testing.workspace = true
+tokio = { version = "1.20.1", features = ["full"]}
