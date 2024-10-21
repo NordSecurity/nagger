@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-22.04
     container: rust:1.77.0
     steps:
-      - run: cargo install --version 2.6.1 cargo-dylint dylint-link
+      - run: cargo install --version 2.6.1 cargo-dylint dylint-link --locked
       - run: rustup update nightly-2024-01-25
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1

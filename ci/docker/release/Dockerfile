@@ -17,7 +17,7 @@ RUN set -eux; \
         # Libtelio dependencies
         quilt && \
     apt-get clean && \
-    cargo install --version 3.0.0 cargo-dylint dylint-link && \
+    cargo install --version 3.0.0 cargo-dylint dylint-link --locked && \
     rustup update nightly-2024-01-25
 
 ENV NAGGER_PATH=/dist
