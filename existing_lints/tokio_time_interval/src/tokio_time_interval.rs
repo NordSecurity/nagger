@@ -51,7 +51,7 @@ impl LateLintPass<'_> for TokioTimeInterval {
                             cx,
                             TOKIO_TIME_INTERVAL,
                             expr.span,
-                            &format!("Use of {name}, this might generate many ticks after a sleep."),
+                            format!("Use of {name}, this might generate many ticks after a sleep."),
                             None,
                             "Consider using wrapper from telio-utils, or set the missed tick behaviour to appropriate value."
                         );
