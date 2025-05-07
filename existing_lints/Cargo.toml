@@ -4,7 +4,8 @@ members = [
     "mpsc_blocking_send",
     "large_futures",
     "index_access_check",
-    "tokio_time_interval"
+    "tokio_time_interval",
+    "instant"
 ]
 
 [workspace.dependencies]
