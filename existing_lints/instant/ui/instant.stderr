@@ -1,0 +1,35 @@
+warning: use of `std::time::Instant::now()` detected
+  --> $DIR/instant.rs:4:21
+   |
+LL |     let _instant1 = std::time::Instant::now();
+   |                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: this Instant implementation doesn't account for system sleep/suspend time, which may lead to inaccurate timing measurements
+   = note: `#[warn(instant)]` on by default
+
+warning: use of `std::time::Instant::now()` detected
+  --> $DIR/instant.rs:9:21
+   |
+LL |     let _instant2 = Instant::now();
+   |                     ^^^^^^^^^^^^^^
+   |
+   = help: this Instant implementation doesn't account for system sleep/suspend time, which may lead to inaccurate timing measurements
+
+warning: use of `tokio::time::Instant::now()` detected
+  --> $DIR/instant.rs:13:21
+   |
+LL |     let _instant3 = tokio::time::Instant::now();
+   |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: this Instant implementation doesn't account for system sleep/suspend time, which may lead to inaccurate timing measurements
+
+warning: use of `tokio::time::Instant::now()` detected
+  --> $DIR/instant.rs:18:21
+   |
+LL |     let _instant4 = Instant::now();
+   |                     ^^^^^^^^^^^^^^
+   |
+   = help: this Instant implementation doesn't account for system sleep/suspend time, which may lead to inaccurate timing measurements
+
+warning: 4 warnings emitted
+

@@ -1,0 +1,20 @@
+[package]
+name = "instant"
+version = "0.1.0"
+edition = "2021"
+description = "Detect usage of std::time::Instant and tokio::time::Instant"
+
+[[example]]
+name = "ui"
+path = "ui/instant.rs"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", tag = "rust-1.85.0"}
+dylint_linting.workspace = true
+
+[dev-dependencies]
+dylint_testing.workspace = true
+tokio = { version = "1.20.1", features = ["full"]}
