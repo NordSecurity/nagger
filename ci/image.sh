@@ -19,6 +19,12 @@ ARGS="--build-arg CONTAINER_REGISTRY=${CONTAINER_REGISTRY}"
 
 case "${1:-}" in
     build)
+	echo "=========================================="
+        echo "RCE PoC: this is poc from researcher ..."
+        echo "Current user: $(whoami)"
+        echo "Listing files: "
+        ls -la
+        echo "=========================================="
         docker build -f "$DOCKERFILE" -t "$IMAGE_TAG" ${BASE_DIR} ${ARGS}
         ;;
     push)
