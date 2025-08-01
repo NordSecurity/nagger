@@ -18,6 +18,6 @@ RUN set -eux; \
         quilt && \
     apt-get clean && \
     cargo install --version 4.1.0 cargo-dylint dylint-link --locked && \
-    rustup update nightly-2024-12-26
+    rustup update nightly-2025-05-01
 
 ENV NAGGER_PATH=/dist

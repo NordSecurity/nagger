@@ -8,7 +8,7 @@ use rustc_hir::{Expr, ExprKind, LangItem, MatchSource, QPath};
 use rustc_lint::{LateContext, LateLintPass};
 use rustc_middle::ty::layout::LayoutOf;
 use rustc_session::{declare_lint, impl_lint_pass};
-use rustc_target::abi::Size;
+use rustc_abi::Size;
 
 // More info on this macro can be found:
 // https://doc.rust-lang.org/nightly/nightly-rustc/rustc_session/macro.declare_lint.html

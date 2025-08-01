@@ -218,8 +218,8 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
 name = "clippy_utils"
-version = "0.1.85"
-source = "git+https://github.com/rust-lang/rust-clippy?tag=rust-1.85.0#609cd310be44677ae31d452a17b0f8207e1abfe1"
+version = "0.1.88"
+source = "git+https://github.com/rust-lang/rust-clippy?tag=rust-1.88.0#03a5b6b976ac121f4233775c49a4bce026065b47"
 dependencies = [
  "arrayvec",
  "itertools",
@@ -1383,9 +1383,9 @@ checksum = "719b953e2095829ee67db738b3bfa9fa368c94900df327b3f07fe6e794d2fe1f"
 
 [[package]]
 name = "rustc_apfloat"
-version = "0.2.2+llvm-462a31f5a5ab"
+version = "0.2.3+llvm-462a31f5a5ab"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "121e2195ff969977a4e2b5c9965ea867fce7e4cb5aee5b09dee698a7932d574f"
+checksum = "486c2179b4796f65bfe2ee33679acf0927ac83ecf583ad6c91c3b4570911b9ad"
 dependencies = [
  "bitflags 2.9.0",
  "smallvec",
