@@ -5,7 +5,7 @@ use rustc_lint::{LateContext, LateLintPass};
 use rustc_middle::ty::TyKind;
 use rustc_middle::ty::VariantDef;
 use rustc_session::{declare_lint, impl_lint_pass};
-use rustc_span::{def_id::DefId, sym};
+use rustc_span::{def_id::DefId, sym, Symbol};
 use std::collections::HashSet;
 
 // More info on this macro can be found:
@@ -83,10 +83,33 @@ impl LateLintPass<'_> for Instant {
 
 pub fn match_def_paths<'a>(
     cx: &LateContext<'_>,
-    path: DefId,
+    def_id: DefId,
     syms: &'a [&'a [&str]],
 ) -> Option<&'a [&'a str]> {
     syms.iter()
-        .find(|syms| clippy_utils::match_def_path(cx, path, syms))
+        .find(|syms| match_def_path(cx, def_id, syms))
         .map(|syms| *syms)
+}
+
+// Replacement for clippy_utils::match_def_path which was removed in Rust 1.89
+pub fn match_def_path(cx: &LateContext<'_>, def_id: DefId, path: &[&str]) -> bool {
+    let def_path = cx.tcx.def_path(def_id);
+    let crate_name = cx.tcx.crate_name(def_id.krate);
+    
+    // Build the full path starting with crate name
+    let mut full_path = Vec::new();
+    full_path.push(crate_name.to_string());
+    
+    for element in def_path.data.iter() {
+        if let Some(name) = element.data.get_opt_name() {
+            full_path.push(name.to_string());
+        }
+    }
+    
+    // Compare with the expected path
+    if full_path.len() != path.len() {
+        return false;
+    }
+    
+    full_path.iter().zip(path.iter()).all(|(a, b)| a == b)
 }
