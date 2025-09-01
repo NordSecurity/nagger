@@ -1,10 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
-    "unwrap_check",
     "mpsc_blocking_send",
-    "large_futures",
-    "index_access_check",
     "tokio_time_interval",
     "instant"
 ]

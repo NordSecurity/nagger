@@ -18,9 +18,6 @@ INDEX_ACCESS_LINT_BIN=libindex_access_check@${RUST_CHANNEL}-x86_64-unknown-linux
 TOKIO_TIME_INTERVAL_BIN=libtokio_time_interval@${RUST_CHANNEL}-x86_64-unknown-linux-gnu.so
 INSTANT_BIN=libinstant@${RUST_CHANNEL}-x86_64-unknown-linux-gnu.so
 
-cp "${BASE_DIR}/existing_lints/target/${TARGET}/release/${UNWRAP_CHECK_LINT_BIN}" "${BASE_DIR}/dist/"
 cp "${BASE_DIR}/existing_lints/target/${TARGET}/release/${MPSC_BLOCKING_SEND_LINT_BIN}" "${BASE_DIR}/dist/"
-cp "${BASE_DIR}/existing_lints/target/${TARGET}/release/${LARGE_FUTURES_LINT_BIN}" "${BASE_DIR}/dist/"
-cp "${BASE_DIR}/existing_lints/target/${TARGET}/release/${INDEX_ACCESS_LINT_BIN}" "${BASE_DIR}/dist/"
 cp "${BASE_DIR}/existing_lints/target/${TARGET}/release/${TOKIO_TIME_INTERVAL_BIN}" "${BASE_DIR}/dist/"
 cp "${BASE_DIR}/existing_lints/target/${TARGET}/release/${INSTANT_BIN}" "${BASE_DIR}/dist/"
