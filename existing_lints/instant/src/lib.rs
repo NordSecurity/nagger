@@ -28,7 +28,7 @@ mod instant;
 #[no_mangle]
 pub fn register_lints(_sess: &rustc_session::Session, lint_store: &mut rustc_lint::LintStore) {
     lint_store.register_lints(&[instant::INSTANT]);
-    lint_store.register_late_pass(|_| Box::new(instant::Instant::default()));
+    lint_store.register_late_pass(Box::new(|_| Box::new(instant::Instant::default())));
 }
 
 // More info on tests https://github.com/trailofbits/dylint/tree/master/utils/testing
