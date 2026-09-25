@@ -7,5 +7,5 @@ members = [
 ]
 
 [workspace.dependencies]
-dylint_linting = "4.1.0"
-dylint_testing = "4.1.0"
+dylint_linting = "6.1.0"
+dylint_testing = "6.1.0"

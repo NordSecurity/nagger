@@ -12,9 +12,9 @@ path = "ui/instant.rs"
 crate-type = ["cdylib"]
 
 [dependencies]
-clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", tag = "rust-1.89.0"}
+clippy_utils = { git = "https://github.com/rust-lang/rust-clippy", tag = "rust-1.98.0"}
 dylint_linting.workspace = true
 
 [dev-dependencies]
 dylint_testing.workspace = true
-tokio = { version = "1.20.1", features = ["full"]}
+tokio = { version = "1.53.1", features = ["full"]}
