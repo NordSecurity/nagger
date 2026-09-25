@@ -1,0 +1,12 @@
+[toolchain]
+# Must be the nightly that clippy_utils (Cargo.toml, tag rust-1.98.0) was written
+# against (rust-toolchain.toml in rust-clippy at that tag). rustc_private has no
+# stable API, so any other nightly may fail to compile or misbehave.
+#
+# Corresponds to Rust 1.98. 1.98.0 had a miscompilation (rust-lang/rust#161441)
+# fixed in 1.98.1; point releases don't change Clippy, so no newer tag exists.
+# Only this lint library is compiled with this nightly; linted projects are just
+# checked by it, so their binaries are unaffected. In theory a lint could report
+# wrongly or stay silent.
+channel = "nightly-2026-06-25"
+components = ["llvm-tools", "rustc-dev"]
