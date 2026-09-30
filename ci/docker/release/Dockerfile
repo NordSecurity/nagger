@@ -15,9 +15,11 @@ RUN set -eux; \
         # libdrop deps
         cmake \
         # Libtelio dependencies
-        quilt && \
+        quilt libclang-dev && \
     apt-get clean && \
     cargo install --version 6.1.0 cargo-dylint dylint-link --locked && \
-    rustup update nightly-2026-06-25
+    # components should cover at least components in existing_lints/rust-toolchain.toml
+    rustup toolchain install nightly-2026-06-25 --profile minimal \
+        --component llvm-tools,rustc-dev
 
 ENV NAGGER_PATH=/dist
