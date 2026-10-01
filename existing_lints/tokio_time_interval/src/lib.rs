@@ -28,7 +28,9 @@ mod tokio_time_interval;
 #[no_mangle]
 pub fn register_lints(_sess: &rustc_session::Session, lint_store: &mut rustc_lint::LintStore) {
     lint_store.register_lints(&[tokio_time_interval::TOKIO_TIME_INTERVAL]);
-    lint_store.register_late_pass(|_| Box::new(tokio_time_interval::TokioTimeInterval::default()));
+    lint_store.register_late_pass(Box::new(|_| {
+        Box::new(tokio_time_interval::TokioTimeInterval::default())
+    }));
 }
 
 // More info on tests https://github.com/trailofbits/dylint/tree/master/utils/testing

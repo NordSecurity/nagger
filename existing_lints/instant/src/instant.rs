@@ -24,7 +24,7 @@ declare_lint! {
     /// let start = Instant::now();
     /// // Code that might be interrupted by sleep/suspend
     /// let elapsed = start.elapsed();
-    /// 
+    ///
     /// // Also bad
     /// use tokio::time::Instant;
     /// let start = Instant::now();
@@ -38,7 +38,7 @@ declare_lint! {
 }
 
 #[derive(Default)]
-pub struct Instant{}
+pub struct Instant {}
 
 impl_lint_pass!(Instant => [INSTANT]);
 impl LateLintPass<'_> for Instant {
@@ -48,13 +48,13 @@ impl LateLintPass<'_> for Instant {
                 if path_segment.ident.as_str() == "now" {
                     // Get the type information
                     let ty = cx.typeck_results().node_type(ty.hir_id);
-                    
+
                     let std_instant_paths = &[["std", "time", "Instant"].as_slice()];
                     let tokio_instant_paths = &[["tokio", "time", "instant", "Instant"].as_slice()];
-                    
+
                     if let TyKind::Adt(adt_def, _) = ty.kind() {
                         let def_id = adt_def.did();
-                        
+
                         if match_def_paths(cx, def_id, std_instant_paths).is_some() {
                             span_lint_and_help(
                                 cx,
@@ -95,21 +95,21 @@ pub fn match_def_paths<'a>(
 pub fn match_def_path(cx: &LateContext<'_>, def_id: DefId, path: &[&str]) -> bool {
     let def_path = cx.tcx.def_path(def_id);
     let crate_name = cx.tcx.crate_name(def_id.krate);
-    
+
     // Build the full path starting with crate name
     let mut full_path = Vec::new();
     full_path.push(crate_name.to_string());
-    
+
     for element in def_path.data.iter() {
         if let Some(name) = element.data.get_opt_name() {
             full_path.push(name.to_string());
         }
     }
-    
+
     // Compare with the expected path
     if full_path.len() != path.len() {
         return false;
     }
-    
+
     full_path.iter().zip(path.iter()).all(|(a, b)| a == b)
 }

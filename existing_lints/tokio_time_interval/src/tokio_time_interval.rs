@@ -76,21 +76,21 @@ pub fn match_def_paths<'a>(
 pub fn match_def_path(cx: &LateContext<'_>, def_id: DefId, path: &[&str]) -> bool {
     let def_path = cx.tcx.def_path(def_id);
     let crate_name = cx.tcx.crate_name(def_id.krate);
-    
+
     // Build the full path starting with crate name
     let mut full_path = Vec::new();
     full_path.push(crate_name.to_string());
-    
+
     for element in def_path.data.iter() {
         if let Some(name) = element.data.get_opt_name() {
             full_path.push(name.to_string());
         }
     }
-    
+
     // Compare with the expected path
     if full_path.len() != path.len() {
         return false;
     }
-    
+
     full_path.iter().zip(path.iter()).all(|(a, b)| a == b)
 }

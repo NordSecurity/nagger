@@ -18,9 +18,8 @@ fn incorrect_tokio_2() {
     let _instant4 = Instant::now();
 }
 
-
 #[allow(instant)]
-fn correct_std_1() {    
+fn correct_std_1() {
     let _instant5 = std::time::Instant::now();
 
     use std::time::Instant;
@@ -29,8 +28,8 @@ fn correct_std_1() {
 
 #[allow(instant)]
 fn correct_tokio_1() {
-    let _instant7= tokio::time::Instant::now();
-    
+    let _instant7 = tokio::time::Instant::now();
+
     use tokio::time::Instant;
     let _instant8 = Instant::now();
 }

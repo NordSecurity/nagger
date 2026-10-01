@@ -5,10 +5,10 @@ permissions: {}
 jobs:
   tests:
     runs-on: ubuntu-22.04
-    container: rust:1.85.0
+    container: rust:1.98.1
     steps:
-      - run: cargo install --version 4.1.0 cargo-dylint dylint-link --locked
-      - run: rustup update nightly-2024-12-26
+      - run: cargo install --version 6.1.0 cargo-dylint dylint-link --locked
+      - run: rustup update nightly-2026-06-25
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 #v4.1.1
       - run: cargo test --all
