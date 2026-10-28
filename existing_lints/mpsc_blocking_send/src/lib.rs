@@ -28,7 +28,7 @@ mod mpsc_blocking_send;
 #[no_mangle]
 pub fn register_lints(_sess: &rustc_session::Session, lint_store: &mut rustc_lint::LintStore) {
     lint_store.register_lints(&[mpsc_blocking_send::MPSC_BLOCKING_SEND]);
-    lint_store.register_late_pass(Box::new(|_| {
+    lint_store.register_late_lint_pass(Box::new(|_| {
         Box::new(mpsc_blocking_send::MpscBlockingSend::default())
     }));
 }
