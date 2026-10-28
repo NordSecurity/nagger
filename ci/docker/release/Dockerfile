@@ -17,7 +17,7 @@ RUN set -eux; \
         # Libtelio dependencies
         quilt libclang-dev && \
     apt-get clean && \
-    cargo install --version 6.1.1 cargo-dylint dylint-link --locked && \
+    cargo install --version 6.3.0 cargo-dylint dylint-link --locked && \
     # components should cover at least components in existing_lints/rust-toolchain.toml
     rustup toolchain install nightly-2026-08-07 --profile minimal \
         --component llvm-tools,rustc-dev
